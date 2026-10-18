@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#050403">
+<title>ATELIER H. · Scroll to assemble</title>
+<meta name="description" content="Scroll to assemble the ATELIER H. Calibre AH-01, part by part. A fictional maison; the watch is modelled in code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/watch.css">
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/jsm/"}}</script>
+<link rel="modulepreload" href="js/app.js">
+<script>document.documentElement.classList.add('js');</script>
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#steps">Skip to the assembly steps</a>
+
+<header class="nav" data-fit>
+  <button class="icon-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18M3 12h18M3 17.5h18"/></svg>
+  </button>
+  <a class="wordmark" href="#top" aria-label="ATELIER Hautehorlogerie, back to the start">
+    <span class="wm-main">ATELIER</span>
+    <span class="wm-sub">HAUTEHORLOGERIE</span>
+  </a>
+  <div class="nav-right">
+    <button class="icon-btn" id="search-btn" type="button" aria-label="Find a part" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/></svg>
+    </button>
+    <button class="icon-btn bag" id="bag-btn" type="button" aria-label="Bag, empty" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+      <span class="badge" id="bag-count" hidden>0</span>
+    </button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main" hidden>
+  <ul>
+    <li><a href="#top" data-go="0">The assembly</a></li>
+    <li><a href="#top" data-go="0.45">The movement</a></li>
+    <li><a href="#top" data-go="1">Calibre AH-01</a></li>
+    <li><button type="button" data-open-search>Find a part</button></li>
+  </ul>
+</nav>
+
+<main id="top">
+  <section class="build" id="build" aria-labelledby="headline">
+    <div class="stage">
+      <div class="velvet" aria-hidden="true"><div class="spot"></div><div class="nap"></div></div>
+      <canvas id="watch" role="img" aria-label="An ATELIER H. watch in exploded view: dial, hands, rotor and movement parts floating apart from the case."></canvas>
+      <img class="fallback" id="fallback" alt="" hidden>
+      <div class="copy">
+        <h1 id="headline"><span>Scroll to</span> <span>assemble</span> <span>your legacy.</span> <span>Atelier H.</span></h1>
+        <div class="final" id="final" aria-hidden="true">
+          <p class="final-line">Calibre AH-01 <span aria-hidden="true">·</span> 40 mm <span aria-hidden="true">·</span> rose gold &amp; steel</p>
+          <p class="final-price">€ 18,400</p>
+          <button class="cta" id="add-btn" type="button" tabindex="-1">Add to bag</button>
+        </div>
+        <a class="cue" href="#steps" id="cue" aria-label="Scroll to assemble">
+          <svg viewBox="0 0 16 96" aria-hidden="true"><path d="M8 0v92M2 86l6 7 6-7"/></svg>
+        </a>
+        <svg class="chev" viewBox="0 0 24 12" aria-hidden="true"><path d="M3 2l9 8 9-8"/></svg>
+      </div>
+      <p class="sr-only" id="live" aria-live="polite"></p>
+      <ol class="steps" id="steps" aria-label="Assembly steps">
+        <li><button type="button" class="step" data-p="0" aria-current="step">
+          <span class="shot"><img src="assets/renders/tile_start.webp" alt="" width="920" height="400" decoding="async"></span>
+          <span class="meter" aria-hidden="true"><i></i></span>
+          <span class="cap"><b>Start: exploded view</b><span>Initial state, components scattered</span></span>
+        </button></li>
+        <li><button type="button" class="step" data-p="0.45">
+          <span class="shot"><img src="assets/renders/tile_progress.webp" alt="" width="920" height="400" decoding="async"></span>
+          <span class="meter" aria-hidden="true"><i></i></span>
+          <span class="cap"><b>Progress: gears &amp; case locking</b><span>Movement assembly phase</span></span>
+        </button></li>
+        <li><button type="button" class="step" data-p="1">
+          <span class="shot"><img src="assets/renders/tile_final.webp" alt="" width="920" height="400" decoding="async"></span>
+          <span class="meter" aria-hidden="true"><i></i></span>
+          <span class="cap"><b>Final: ticking assembly</b><span>Fully built, hands moving</span></span>
+        </button></li>
+      </ol>
+      <div class="rail" aria-hidden="true"><i></i><i></i><i></i><span id="rail-label">01 · Exploded view</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>ATELIER H. is a fictional maison. The Calibre AH-01 is modelled in code, part by part, and rendered live in your browser.</p>
+</footer>
+
+<div class="sheet" id="search" role="dialog" aria-modal="true" aria-labelledby="search-title" hidden>
+  <div class="sheet-panel">
+    <div class="sheet-head">
+      <h2 id="search-title">Find a part</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <label class="sr-only" for="q">Part name</label>
+    <input id="q" type="text" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="parts" autocomplete="off" spellcheck="false" placeholder="Balance, rotor, crystal…">
+    <ul id="parts" role="listbox" aria-label="Parts"></ul>
+    <p class="sheet-note">Choose a part to scroll to the moment it is fitted.</p>
+  </div>
+</div>
+
+<div class="sheet" id="bag" role="dialog" aria-modal="true" aria-labelledby="bag-title" hidden>
+  <div class="sheet-panel">
+    <div class="sheet-head">
+      <h2 id="bag-title">Your bag</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div id="bag-body"></div>
+  </div>
+</div>
+
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+<noscript><p class="nojs">The assembly needs JavaScript. The finished watch: ATELIER H. Calibre AH-01, 40 mm, rose gold and steel, blue fumé sunburst dial.</p></noscript>
+</body>
+</html>
